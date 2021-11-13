@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
-// import Button from '../components/Button';
 
 class Login extends React.Component {
   constructor() {
@@ -15,13 +14,8 @@ class Login extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    // this.validateButton = this.validateButton.bind(this);
     this.validateInput = this.validateInput.bind(this);
   }
-
-  // componentDidMount() {
-  //   console.log(createUser(this.state));
-  // }
 
   handleChange({ target }) {
     this.setState({
@@ -53,11 +47,6 @@ class Login extends React.Component {
     }
     return inputName;
   }
-
-  // validateButton() {
-  //   if (name.length < minLenght) return disabled;
-  //   if (name.length >= minLenght) return enabled;
-  // }
 
   render() {
     const minLenght = 3;
