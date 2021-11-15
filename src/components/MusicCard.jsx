@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
@@ -15,7 +15,7 @@ class MusicCard extends React.Component {
     this.noChecked = this.noChecked.bind(this);
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     getFavoriteSongs()
       .then((data) => this.setState({
         favoriteSongs: [...data],
@@ -24,14 +24,21 @@ class MusicCard extends React.Component {
 
   handleChange({ target }) {
     const { objectAlbum } = this.props;
+    const { favoriteSongs } = this.state;
     const arrayOfAlbum = objectAlbum;
     const song = arrayOfAlbum.find((obj) => obj.trackId === Number(target.value));
-    this.setState({ loading: true }, () => {
-      addSong(song)
-        .then(() => this.setState({
-          loading: false,
-        }));
-    });
+    const duplicate = favoriteSongs.some((track) => track.trackId === song.trackId);
+    if (duplicate) {
+      this.setState({ loading: true }, () => {
+        removeSong(song)
+          .then(() => this.setState({ loading: false }));
+      });
+    } else {
+      this.setState({ loading: true }, () => {
+        addSong(song)
+          .then(() => this.setState({ loading: false }));
+      });
+    }
   }
 
   noChecked(trackid, handleChange) {
