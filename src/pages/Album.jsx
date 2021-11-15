@@ -27,7 +27,7 @@ class Album extends React.Component {
         artist: data[0].artistName,
         image: data[0].artworkUrl100,
         album: data[0].collectionName,
-        objectAlbum: [...data.slice(1)],
+        objectAlbum: [...data],
       }));
   }
 
