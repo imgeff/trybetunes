@@ -11,8 +11,13 @@ class MusicCard extends React.Component {
       favoriteSongs: [],
     };
     this.handleChange = this.handleChange.bind(this);
+    this.recoverObject = this.recoverObject.bind(this);
     this.checked = this.checked.bind(this);
     this.noChecked = this.noChecked.bind(this);
+  }
+
+  componentDidMount() {
+    this.recoverObject();
   }
 
   componentDidUpdate() {
@@ -39,6 +44,11 @@ class MusicCard extends React.Component {
           .then(() => this.setState({ loading: false }));
       });
     }
+  }
+
+  recoverObject() {
+    const { objectAlbum } = this.props;
+    this.setState({ favoriteSongs: [objectAlbum] });
   }
 
   noChecked(trackid, handleChange) {
@@ -82,7 +92,7 @@ class MusicCard extends React.Component {
       <div className="MusicCard">
         {loading === true && <Loading /> }
         {
-          arrayOfAlbum.slice(1).map(({ trackName, previewUrl, trackId }) => (
+          arrayOfAlbum.map(({ trackName, previewUrl, trackId }) => (
             <div className="name-song" key={ trackName }>
               <p key={ trackName }>{trackName}</p>
               <audio data-testid="audio-component" src={ previewUrl } controls>

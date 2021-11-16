@@ -39,7 +39,7 @@ class Album extends React.Component {
         <img src={ image } alt={ album } />
         <h1 data-testid="album-name">{album}</h1>
         <span data-testid="artist-name">{artist}</span>
-        <MusicCard objectAlbum={ objectAlbum } />
+        <MusicCard objectAlbum={ objectAlbum.slice(1) } />
       </div>
     );
   }
