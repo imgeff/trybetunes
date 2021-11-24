@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import lupa from '../images/search.svg';
+import '../estilo/Form.css';
 
 class Form extends React.Component {
   render() {
@@ -31,14 +33,17 @@ class Form extends React.Component {
         {nameButton}
       </button>);
     return (
-      <form>
-        <input
-          data-testid={ testidInput }
-          type="text"
-          placeholder={ placeholder }
-          onChange={ handleChange }
-        />
-        {stateLength >= minLength ? enabled : disabled}
+      <form className="form-search">
+        <div>
+          <img src={ lupa } alt="lupa" />
+          <input
+            data-testid={ testidInput }
+            type="text"
+            placeholder={ placeholder }
+            onChange={ handleChange }
+          />
+          {stateLength >= minLength ? enabled : disabled}
+        </div>
       </form>
     );
   }

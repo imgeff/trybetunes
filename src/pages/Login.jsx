@@ -2,12 +2,15 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import Logo from '../images/LOGO.png';
+import '../estilo/Login.css';
 
 class Login extends React.Component {
   constructor() {
     super();
     this.state = {
       name: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Font_Awesome_5_solid_user-circle.svg/991px-Font_Awesome_5_solid_user-circle.svg.png',
       loading: false,
       ok: false,
     };
@@ -24,9 +27,9 @@ class Login extends React.Component {
   }
 
   handleClick() {
-    const { name } = this.state;
+    const { name, image } = this.state;
     this.setState({ loading: true }, () => {
-      createUser({ name })
+      createUser({ name, image })
         .then(() => this.setState({ ok: true }));
     });
   }
@@ -71,13 +74,12 @@ class Login extends React.Component {
       </button>);
     const { name, ok } = this.state;
     return (
-      <div data-testid="page-login">
-        <form>
-          <fieldset>
-            {this.validateInput()}
-            {name.length >= minLenght ? enabled : disabled}
-            {ok === true && <Redirect to="/search" />}
-          </fieldset>
+      <div className="page-login" data-testid="page-login">
+        <img src={ Logo } alt="Logo" />
+        <form className="form-login">
+          {this.validateInput()}
+          {name.length >= minLenght ? enabled : disabled}
+          {ok === true && <Redirect to="/search" />}
         </form>
       </div>
     );

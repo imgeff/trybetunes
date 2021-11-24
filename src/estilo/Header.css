@@ -1,0 +1,33 @@
+header {
+  align-items: center;
+  background-color: #023031;
+  display: flex;
+  flex-wrap: wrap;
+  height: 96px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header img {
+  height: 76px;
+  margin-left: 40px;
+  margin-top: -35px;
+  width: 96px;
+}
+
+header span {
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  height: 35px;
+  margin-right: 50px;
+  padding-right: 30px;
+}
+
+header span img {
+  height: 30px;
+  margin: 0 10px;
+  width: 30px;
+}
