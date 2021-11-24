@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import heart from '../images/heart-icon.svg';
+import '../estilo/MusicCard.css';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -54,7 +56,6 @@ class MusicCard extends React.Component {
   noChecked(trackid, handleChange) {
     const checkbox = (
       <label htmlFor={ trackid }>
-        Favorita
         <input
           data-testid={ `checkbox-music-${trackid}` }
           value={ trackid }
@@ -62,6 +63,9 @@ class MusicCard extends React.Component {
           id={ trackid }
           onChange={ handleChange }
         />
+        <div className="mark-check">
+          <img src={ heart } alt="favorite" />
+        </div>
       </label>
     );
     return checkbox;
@@ -70,7 +74,6 @@ class MusicCard extends React.Component {
   checked(trackid, handleChange) {
     const checkbox = (
       <label htmlFor={ trackid }>
-        Favorita
         <input
           data-testid={ `checkbox-music-${trackid}` }
           value={ trackid }
@@ -79,6 +82,9 @@ class MusicCard extends React.Component {
           onChange={ handleChange }
           checked
         />
+        <div className="mark-check">
+          <img src={ heart } alt="favorite" />
+        </div>
       </label>
     );
     return checkbox;
@@ -89,17 +95,19 @@ class MusicCard extends React.Component {
     const { loading, favoriteSongs } = this.state;
     const arrayOfAlbum = objectAlbum;
     return (
-      <div className="MusicCard">
+      <div className="music-card">
         {loading === true && <Loading /> }
         {
           arrayOfAlbum.map(({ trackName, previewUrl, trackId }) => (
             <div className="name-song" key={ trackName }>
               <p key={ trackName }>{trackName}</p>
-              <audio data-testid="audio-component" src={ previewUrl } controls>
-                <track kind="captions" />
-                O seu navegador não suporta o elemento
-                <code>audio</code>
-              </audio>
+              <div className="audio">
+                <audio data-testid="audio-component" src={ previewUrl } controls>
+                  <track kind="captions" />
+                  O seu navegador não suporta o elemento
+                  <code>audio</code>
+                </audio>
+              </div>
               {favoriteSongs.some((song) => song.trackId === trackId) ? (
                 this.checked(trackId, this.handleChange)) : (
                 this.noChecked(trackId, this.handleChange))}

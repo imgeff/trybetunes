@@ -1,0 +1,57 @@
+.music-card {
+  margin-top: 165px;
+}
+
+.name-song {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.name-song p {
+  color: #023031;
+  display: flex;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 18px;
+  justify-content: center;
+  width: 380px;
+}
+
+.audio {
+  margin-right: 50px;
+}
+
+label {
+  align-items: center;
+  display: flex;
+  height: 57px;
+}
+
+label input {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+label img {
+  height: 25px;
+  margin: 0;
+  width: 25px;
+}
+
+.mark-check {
+  cursor: pointer;
+  height: 25px;
+  padding: 5px;
+  width: 25px;
+}
+
+label input:checked ~ .mark-check {
+  background-color: rgb(66, 200, 66);
+  border-radius: 50%;
+  padding: 5px;
+}
+

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
+import '../estilo/Album.css';
 
 class Album extends React.Component {
   constructor() {
@@ -34,12 +35,16 @@ class Album extends React.Component {
   render() {
     const { artist, image, album, objectAlbum } = this.state;
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-album" className="page-album">
         <Header />
-        <img src={ image } alt={ album } />
-        <h1 data-testid="album-name">{album}</h1>
-        <span data-testid="artist-name">{artist}</span>
-        <MusicCard objectAlbum={ objectAlbum.slice(1) } />
+        <div className="album-content">
+          <div className="album-info">
+            <img src={ image } alt={ album } />
+            <h1 data-testid="album-name">{album}</h1>
+            <span data-testid="artist-name">{artist}</span>
+          </div>
+          <MusicCard objectAlbum={ objectAlbum.slice(1) } />
+        </div>
       </div>
     );
   }
