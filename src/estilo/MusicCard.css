@@ -42,6 +42,14 @@ label img {
   width: 25px;
 }
 
+.img {
+  border-radius: 50%;
+  height: 50px;
+  margin: 0;
+  width: 50px;
+}
+
+
 .mark-check {
   cursor: pointer;
   height: 25px;

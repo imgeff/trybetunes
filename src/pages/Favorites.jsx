@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import MusicCart from '../components/MusicCard';
 import Loading from '../components/Loading';
+import '../estilo/Favorites.css';
 
 class Favorites extends React.Component {
   constructor() {
@@ -10,6 +12,7 @@ class Favorites extends React.Component {
     this.state = {
       loading: false,
       favorites: [],
+      image: true,
     };
 
     this.requestFavorites = this.requestFavorites.bind(this);
@@ -42,11 +45,29 @@ class Favorites extends React.Component {
   }
 
   render() {
-    const { loading, favorites } = this.state;
+    const { loading, favorites, image } = this.state;
     return (
       <div data-testid="page-favorites">
         <Header />
-        { loading ? <Loading /> : <MusicCart objectAlbum={ favorites } />}
+        <nav>
+          <div className="search">
+            <Link to="/search" data-testid="link-to-search">Search</Link>
+          </div>
+          <div className="favorites">
+            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
+          </div>
+          <div className="profile">
+            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+          </div>
+        </nav>
+        { loading ? <Loading /> : (
+          <div className="favorites-songs">
+            <p className="favorite-text">Músicas favoritas:</p>
+            <div className="songs">
+              <MusicCart objectAlbum={ favorites } image={ image } />
+            </div>
+          </div>
+        )}
       </div>
     );
   }

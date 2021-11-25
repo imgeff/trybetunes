@@ -91,15 +91,17 @@ class MusicCard extends React.Component {
   }
 
   render() {
-    const { objectAlbum } = this.props;
+    const { objectAlbum, image } = this.props;
     const { loading, favoriteSongs } = this.state;
     const arrayOfAlbum = objectAlbum;
     return (
       <div className="music-card">
         {loading === true && <Loading /> }
         {
-          arrayOfAlbum.map(({ trackName, previewUrl, trackId }) => (
+          arrayOfAlbum.map(({ trackName, previewUrl, trackId, artworkUrl100 }) => (
             <div className="name-song" key={ trackName }>
+              {image ? (<img src={ artworkUrl100 } alt={ trackId } className="img" />
+              ) : null}
               <p key={ trackName }>{trackName}</p>
               <div className="audio">
                 <audio data-testid="audio-component" src={ previewUrl } controls>
@@ -124,6 +126,7 @@ MusicCard.propTypes = {
     trackName: PropTypes.string,
     previewUrl: PropTypes.string,
   }).isRequired,
+  image: PropTypes.bool.isRequired,
 };
 
 export default MusicCard;

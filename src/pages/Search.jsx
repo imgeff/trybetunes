@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from '../components/Form';
 import Header from '../components/Header';
+import Nav from '../components/Nav';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import '../estilo/Search.css';
@@ -48,17 +49,7 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <nav>
-          <div className="topic-search">
-            <Link to="/search" data-testid="link-to-search">Search</Link>
-          </div>
-          <div className="topic-favorites">
-            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-          </div>
-          <div className="topic-profile">
-            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-          </div>
-        </nav>
+        <Nav />
         <div className="form-search">
           { loading ? <Loading /> : <Form
             testidInput="search-artist-input"
