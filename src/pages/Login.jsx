@@ -11,11 +11,14 @@ class Login extends React.Component {
     super();
     this.state = {
       name: '',
+      senhaDigitada: '',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Font_Awesome_5_solid_user-circle.svg/991px-Font_Awesome_5_solid_user-circle.svg.png',
       loading: false,
       redirect: false,
+      login: undefined,
     };
 
+    this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.validateInput = this.validateInput.bind(this);
@@ -27,12 +30,23 @@ class Login extends React.Component {
     });
   }
 
-  handleClick() {
-    const { name, image } = this.state;
-    this.setState({ loading: true }, () => {
-      createUser({ name, image })
-        .then(() => this.setState({ redirect: true }));
+  handleChangePassword({ target }) {
+    this.setState({
+      senhaDigitada: target.value,
     });
+  }
+
+  handleClick() {
+    const { name, image, senhaDigitada } = this.state;
+    const password = localStorage.getItem('password');
+    if (senhaDigitada === password) {
+      this.setState({ loading: true, login: true }, () => {
+        createUser({ name, image })
+          .then(() => this.setState({ redirect: true }));
+      });
+    } else {
+      this.setState({ login: false });
+    }
   }
 
   validateInput() {
@@ -53,7 +67,8 @@ class Login extends React.Component {
   }
 
   render() {
-    const minLenght = 3;
+    const MINLENGTH = 3;
+    const senhaInvalida = <span className="invalid-pass">Senha Inválida</span>;
     const disabled = (
       <button
         type="button"
@@ -73,13 +88,21 @@ class Login extends React.Component {
       >
         Entrar
       </button>);
-    const { name, redirect } = this.state;
+    const { name, redirect, login } = this.state;
     return (
       <div className="page-login" data-testid="page-login">
         <img src={ Logo } alt="Logo" />
         <form className="form-login">
           {this.validateInput()}
-          {name.length >= minLenght ? enabled : disabled}
+          <input
+            data-testid="edit-input-password"
+            type="password"
+            name="password"
+            placeholder="Digite sua senha"
+            onChange={ this.handleChangePassword }
+          />
+          {login === false && senhaInvalida}
+          {name.length >= MINLENGTH ? enabled : disabled}
           {redirect === true && <Redirect to="/search" />}
           <Link to="/profile/edit">Cadastre-se</Link>
         </form>

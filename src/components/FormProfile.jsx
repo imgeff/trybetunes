@@ -8,6 +8,7 @@ class FormProfile extends React.Component {
     super();
     this.state = {
       name: '',
+      password: '',
       email: '',
       image: '',
       description: '',
@@ -18,6 +19,11 @@ class FormProfile extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.disabledButton = this.disabledButton.bind(this);
+  }
+
+  componentDidUpdate() {
+    const { password } = this.state;
+    localStorage.setItem('password', password);
   }
 
   handleChange({ target }) {
@@ -117,6 +123,16 @@ class FormProfile extends React.Component {
             id="edit-input-image"
             name="image"
             placeholder="Insira um link"
+            onChange={ this.handleChange }
+          />
+        </span>
+        <span>
+          Senha
+          <p>Escolha uma senha de no mínimo 4 caracteres</p>
+          <input
+            data-testid="edit-input-password"
+            type="password"
+            name="password"
             onChange={ this.handleChange }
           />
         </span>
