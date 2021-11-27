@@ -49,7 +49,8 @@ class FormProfile extends React.Component {
   }
 
   render() {
-    const { redirect, disabled, loading } = this.state;
+    const { redirect, disabled, loading, image } = this.state;
+    console.log(image);
     const disabledButton = (
       <button
         type="button"
@@ -71,50 +72,54 @@ class FormProfile extends React.Component {
       <form>
         { loading === true && <Loading /> }
         { redirect === true && <Redirect to="/profile" />}
-        <label htmlFor="edit-input-name">
-          Nome:
+        <span>
+          Nome
+          <p>Fique à vontade para usar seu nome social</p>
           <input
             data-testid="edit-input-name"
             type="text"
             id="edit-input-name"
             name="name"
-            // value={ name }
+            placeholder="Usuário"
             onChange={ this.handleChange }
             minLength="1"
           />
-        </label>
-        <label htmlFor="edit-input-email">
-          Email:
+        </span>
+        <span>
+          Email
+          <p>Escolha um e-mail que consulte diariamente</p>
           <input
             data-testid="edit-input-email"
             type="email"
             name="email"
             id="edit-input-email"
-            // value={ email }
+            placeholder="usuario@usuario.com.br"
             onChange={ this.handleChange }
           />
-        </label>
-        <label htmlFor="edit-input-description">
-          Descrição:
+        </span>
+        <span>
+          Descrição
+          <p>Fale um pouco sobre você</p>
           <textarea
             data-testid="edit-input-description"
             id="edit-input-description"
             name="description"
-            // value={ description }
+            placeholder="Sobre mim"
             onChange={ this.handleChange }
           />
-        </label>
-        <label htmlFor="edit-input-image">
-          Foto de perfil:
+        </span>
+        <span>
+          Foto de perfil
+          <p>Nos mostre o quanto você é lindo(a)!</p>
           <input
             data-testid="edit-input-image"
             type="text"
             id="edit-input-image"
             name="image"
-            // value={ image }
+            placeholder="Insira um link"
             onChange={ this.handleChange }
           />
-        </label>
+        </span>
         { disabled ? disabledButton : enabledButton }
       </form>
     );

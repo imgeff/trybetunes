@@ -3,6 +3,7 @@ import FormProfile from '../components/FormProfile';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
+import '../estilo/ProfileEdit.css';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -40,12 +41,15 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit">
         <Header />
         {loading ? <Loading /> : (
-          <FormProfile
-            valueName={ name }
-            valueEmail={ email }
-            valueImg={ image }
-            valueDesc={ description }
-          />
+          <div className="form-edit">
+            <img className="photo-profile" src={ image } alt={ name } />
+            <FormProfile
+              valueName={ name }
+              valueEmail={ email }
+              valueImg={ image }
+              valueDesc={ description }
+            />
+          </div>
         )}
       </div>
     );

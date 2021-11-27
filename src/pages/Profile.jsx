@@ -55,7 +55,14 @@ class Profile extends React.Component {
           <div className="profile">
             <div className="edit">
               <img data-testid="profile-image" src={ image } alt={ name } />
-              <Link to="/profile/edit">Editar perfil</Link>
+              <Link
+                to={ {
+                  pathname: '/profile/edit',
+                  state: image,
+                } }
+              >
+                Editar perfil
+              </Link>
             </div>
             <div className="info-profile">
               <span>Nome</span>

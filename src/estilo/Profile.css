@@ -26,6 +26,7 @@ nav .profile-profile a {
 }
 
 .profile .edit img {
+  border-radius: 50%;
   height: 100px;
   margin-top: 0;
   width: 100px;
