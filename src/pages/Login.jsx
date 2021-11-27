@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import Logo from '../images/LOGO.png';
@@ -12,7 +13,7 @@ class Login extends React.Component {
       name: '',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Font_Awesome_5_solid_user-circle.svg/991px-Font_Awesome_5_solid_user-circle.svg.png',
       loading: false,
-      ok: false,
+      redirect: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +31,7 @@ class Login extends React.Component {
     const { name, image } = this.state;
     this.setState({ loading: true }, () => {
       createUser({ name, image })
-        .then(() => this.setState({ ok: true }));
+        .then(() => this.setState({ redirect: true }));
     });
   }
 
@@ -72,14 +73,15 @@ class Login extends React.Component {
       >
         Entrar
       </button>);
-    const { name, ok } = this.state;
+    const { name, redirect } = this.state;
     return (
       <div className="page-login" data-testid="page-login">
         <img src={ Logo } alt="Logo" />
         <form className="form-login">
           {this.validateInput()}
           {name.length >= minLenght ? enabled : disabled}
-          {ok === true && <Redirect to="/search" />}
+          {redirect === true && <Redirect to="/search" />}
+          <Link to="/profile/edit">Cadastre-se</Link>
         </form>
       </div>
     );

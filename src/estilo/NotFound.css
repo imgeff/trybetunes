@@ -1,0 +1,39 @@
+.page-not-found {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.page-not-found div {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-not-found div h1 {
+  color: #023031;
+  font-size: 200px;
+  letter-spacing: 0.02em;
+  line-height: 205px;
+  margin-right: 10px;
+  width: 30%;
+}
+
+.page-not-found div p {
+  color: #023031;
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 65px;
+  margin-left: 10px;
+  width: 33%;
+}
+
+img {
+  height: 158px;
+  margin-top: 169px;
+  width: 208px;
+}
