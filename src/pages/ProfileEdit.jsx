@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FormProfile from '../components/FormProfile';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -37,6 +38,7 @@ class ProfileEdit extends React.Component {
 
   render() {
     const { name, email, image, description, loading } = this.state;
+    const { location: { state: { cadastro } } } = this.props;
     return (
       <div data-testid="page-profile-edit">
         <Header />
@@ -48,6 +50,7 @@ class ProfileEdit extends React.Component {
               valueEmail={ email }
               valueImg={ image }
               valueDesc={ description }
+              cadastro={ cadastro }
             />
           </div>
         )}
@@ -55,5 +58,13 @@ class ProfileEdit extends React.Component {
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      cadastro: PropTypes.bool,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default ProfileEdit;

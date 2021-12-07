@@ -21,7 +21,14 @@ class Start extends React.Component {
           </div>
           <div className="start-buttons">
             <Link to="/login">Login</Link>
-            <Link to="/login">Cadastre-se</Link>
+            <Link
+              to={ {
+                pathname: '/profile/edit',
+                state: { cadastro: true },
+              } }
+            >
+              Cadastre-se
+            </Link>
           </div>
         </div>
       </div>

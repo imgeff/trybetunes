@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 import { updateUser } from '../services/userAPI';
 import Loading from './Loading';
@@ -13,7 +14,8 @@ class FormProfile extends React.Component {
       image: '',
       description: '',
       loading: false,
-      redirect: false,
+      redirectLogin: false,
+      redirectProfile: false,
       disabled: true,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -34,11 +36,20 @@ class FormProfile extends React.Component {
   }
 
   handleClick() {
-    const { name, email, image, description } = this.state;
-    this.setState({ loading: true }, () => {
-      updateUser({ name, email, image, description })
-        .then(() => this.setState({ redirect: true, loading: false }));
-    });
+    const { cadastro } = this.props;
+    if (cadastro === true) {
+      const { name, email, image, description } = this.state;
+      this.setState({ loading: true }, () => {
+        updateUser({ name, email, image, description })
+          .then(() => this.setState({ redirectLogin: true, loading: false }));
+      });
+    } else {
+      const { name, email, image, description } = this.state;
+      this.setState({ loading: true }, () => {
+        updateUser({ name, email, image, description })
+          .then(() => this.setState({ redirectProfile: true, loading: false }));
+      });
+    }
   }
 
   disabledButton() {
@@ -56,7 +67,7 @@ class FormProfile extends React.Component {
   }
 
   render() {
-    const { redirect, disabled, loading, image } = this.state;
+    const { redirectLogin, redirectProfile, disabled, loading, image } = this.state;
     console.log(image);
     const disabledButton = (
       <button
@@ -78,7 +89,8 @@ class FormProfile extends React.Component {
     return (
       <form>
         { loading === true && <Loading /> }
-        { redirect === true && <Redirect to="/profile" />}
+        { redirectLogin === true && <Redirect to="/login" />}
+        { redirectProfile === true && <Redirect to="/profile" />}
         <span>
           Nome
           <p>Fique à vontade para usar seu nome social</p>
@@ -142,5 +154,9 @@ class FormProfile extends React.Component {
     );
   }
 }
+
+FormProfile.propTypes = {
+  cadastro: PropTypes.bool.isRequired,
+};
 
 export default FormProfile;
