@@ -1,0 +1,74 @@
+.background-start {
+  background-image: url('../images/ingo-ellerbusch-YpLN4HacUS4-unsplash.jpg');
+  background-size: cover;
+  height: 879px;
+}
+
+.page-start h1, p {
+  color: #023031;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 20px;
+  text-align: start;
+  width: 60%;
+}
+
+.page-start h1 {
+  font-size: 30px;
+  margin-right: 15px;
+  width: 100%;
+}
+
+.page-start p {
+  margin-right: 15px;
+}
+
+.page-start {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+}
+
+.logo-start {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo-start img {
+  margin-top: 30px;
+}
+
+.page-start a {
+  background-color: #12c097;
+  border: 2px solid #023031;
+  border-radius: 5px;
+  color: #023031;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding: 8px 50px;
+  width: 120px;
+}
+
+.page-start a:hover {
+  box-shadow: 0 2px 25px -4px #023031;
+}
+
+.text-start {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.start-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 70%;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import { Link } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import Logo from '../images/LOGO.png';
@@ -39,7 +38,8 @@ class Login extends React.Component {
   handleClick() {
     const { name, image, senhaDigitada } = this.state;
     const password = localStorage.getItem('password');
-    if (senhaDigitada === password) {
+    const nameUser = localStorage.getItem('nameUser');
+    if (senhaDigitada === password && name === nameUser) {
       this.setState({ loading: true, login: true }, () => {
         createUser({ name, image })
           .then(() => this.setState({ redirect: true }));
@@ -68,7 +68,8 @@ class Login extends React.Component {
 
   render() {
     const MINLENGTH = 3;
-    const senhaInvalida = <span className="invalid-pass">Senha Inválida</span>;
+    const acessoInvalido = (
+      <span className="invalid-pass">Senha ou Usuário Inválido</span>);
     const disabled = (
       <button
         type="button"
@@ -101,10 +102,9 @@ class Login extends React.Component {
             placeholder="Digite sua senha"
             onChange={ this.handleChangePassword }
           />
-          {login === false && senhaInvalida}
+          {login === false && acessoInvalido}
           {name.length >= MINLENGTH ? enabled : disabled}
           {redirect === true && <Redirect to="/search" />}
-          <Link to="/profile/edit">Cadastre-se</Link>
         </form>
       </div>
     );

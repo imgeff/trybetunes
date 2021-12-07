@@ -22,8 +22,9 @@ class FormProfile extends React.Component {
   }
 
   componentDidUpdate() {
-    const { password } = this.state;
+    const { password, name } = this.state;
     localStorage.setItem('password', password);
+    localStorage.setItem('nameUser', name);
   }
 
   handleChange({ target }) {

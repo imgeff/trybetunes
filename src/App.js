@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
+import Home from './pages/Home';
 
 class App extends React.Component {
   render() {
@@ -18,7 +19,8 @@ class App extends React.Component {
           <Route path="/profile" component={ Profile } />
           <Route path="/search" component={ Search } />
           <Route path="/favorites" component={ Favorites } />
-          <Route exact path="/" component={ Login } />
+          <Route path="/Login" component={ Login } />
+          <Route exact path="/" component={ Home } />
           <Route path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>
