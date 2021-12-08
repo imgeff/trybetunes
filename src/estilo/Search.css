@@ -48,10 +48,15 @@ nav .topic-favorites, .topic-profile {
 .albums-search {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   width: 60%;
+}
+
+.albums-search p {
+  font-size: 36px;
 }
 
 .album-card {
@@ -91,6 +96,8 @@ nav .topic-favorites, .topic-profile {
 
 .album-card p {
   font-size: 14px;
+  text-align: center;
+  width: 90%;
 }
 
 .album-card a {

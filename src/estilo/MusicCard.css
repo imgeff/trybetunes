@@ -1,5 +1,6 @@
 .music-card {
-  margin-top: 165px;
+  margin: 165px 0;
+  width: 800px;
 }
 
 .name-song {
@@ -45,7 +46,7 @@ label img {
 .img {
   border-radius: 50%;
   height: 50px;
-  margin: 0;
+  margin: 0 30px;
   width: 50px;
 }
 

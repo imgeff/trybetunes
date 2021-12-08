@@ -13,12 +13,13 @@
 
 .album-info h1 {
   color: #023031;
-  font-size: 36px;
+  font-size: 30px;
 }
 
 .album-info span {
   color: #023031;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .album-info img {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import Logo from '../images/LogoWhite.png';
@@ -33,16 +34,21 @@ class Header extends React.Component {
     const { loading, user, image } = this.state;
 
     const Usuario = (
-      <span
-        data-testid="header-user-name"
-      >
-        <img src={ image } alt="foto de perfil" />
-        {user}
-      </span>);
+      <Link to="/profile">
+        <span
+          data-testid="header-user-name"
+        >
+          <img src={ image } alt="foto de perfil" />
+          {user}
+        </span>
+      </Link>
+    );
 
     return (
       <header data-testid="header-component">
-        <img src={ Logo } alt="logo" />
+        <Link to="/search">
+          <img src={ Logo } alt="logo" />
+        </Link>
         {loading ? <Loading /> : Usuario}
       </header>
     );

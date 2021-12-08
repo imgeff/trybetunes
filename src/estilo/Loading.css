@@ -1,0 +1,9 @@
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.loading span {
+  color: #023031;
+  font-size: 25px;
+}

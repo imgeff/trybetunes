@@ -129,7 +129,7 @@ class FormProfile extends React.Component {
         </span>
         <span>
           Foto de perfil
-          <p>Nos mostre o quanto você é lindo(a)!</p>
+          <p>Escolha uma foto que te represente!</p>
           <input
             data-testid="edit-input-image"
             type="text"
@@ -141,7 +141,7 @@ class FormProfile extends React.Component {
         </span>
         <span>
           Senha
-          <p>Escolha uma senha de no mínimo 4 caracteres</p>
+          <p>Escolha uma senha que você se lembre com facilidade</p>
           <input
             data-testid="edit-input-password"
             type="password"

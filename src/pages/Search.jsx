@@ -45,7 +45,9 @@ class Search extends React.Component {
 
   render() {
     const { nameResult, artist, loading, albums, found } = this.state;
-    const minLength = 2;
+    const MINLENGTHINPUT = 2;
+    const MAXLENGTHNAME = 60;
+    const DEFAULTLENGTH = 50;
     return (
       <div data-testid="page-search">
         <Header />
@@ -59,7 +61,7 @@ class Search extends React.Component {
             handleChange={ this.handleChange }
             handleClick={ this.handleClick }
             stateLength={ artist.length }
-            minLength={ minLength }
+            minLength={ MINLENGTHINPUT }
           />}
         </div>
         <div className="albums-search">
@@ -67,19 +69,23 @@ class Search extends React.Component {
           && <p>Nenhum álbum foi encontrado</p>}
           {albums.length > 0
             && <p className="result-album">{`Resultado de álbuns de: ${nameResult}`}</p>}
-          { albums.length > 0 && albums.map((album) => (
-            <div key={ album.colectionId } className="album-card">
-              <img src={ album.artworkUrl100 } alt={ album.collectionName } />
-              <span>{album.collectionName}</span>
-              <p>{album.artistName}</p>
-              <Link
-                data-testid={ `link-to-album-${album.collectionId}` }
-                to={ `/album/${album.collectionId}` }
-              >
-                Detalhes
-              </Link>
-            </div>
-          ))}
+          { albums.length > 0 && (
+            albums.map(({ collectionId, artworkUrl100, collectionName, artistName }) => (
+              <div key={ collectionId } className="album-card">
+                <img src={ artworkUrl100 } alt={ collectionName } />
+                <span>
+                  {collectionName.length > MAXLENGTHNAME
+                    ? collectionName.slice(0, DEFAULTLENGTH) : collectionName}
+                </span>
+                <p>{artistName}</p>
+                <Link
+                  data-testid={ `link-to-album-${collectionId}` }
+                  to={ `/album/${collectionId}` }
+                >
+                  Detalhes
+                </Link>
+              </div>
+            )))}
         </div>
       </div>
     );

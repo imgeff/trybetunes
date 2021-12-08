@@ -1,4 +1,5 @@
 import React from 'react';
+import '../estilo/Loading.css';
 
 class Loading extends React.Component {
   render() {
