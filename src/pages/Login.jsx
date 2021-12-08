@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import { createUser } from '../services/userAPI';
+import { createUser, getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import Logo from '../images/LOGO.png';
 import '../estilo/Login.css';
@@ -9,18 +9,25 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: '',
-      senhaDigitada: '',
+      description: '',
+      email: '',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Font_Awesome_5_solid_user-circle.svg/991px-Font_Awesome_5_solid_user-circle.svg.png',
       loading: false,
-      redirect: false,
       login: undefined,
+      name: '',
+      redirect: false,
+      senhaDigitada: '',
     };
 
+    this.recoverUser = this.recoverUser.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.validateInput = this.validateInput.bind(this);
+  }
+
+  componentDidMount() {
+    this.recoverUser();
   }
 
   handleChange({ target }) {
@@ -36,12 +43,12 @@ class Login extends React.Component {
   }
 
   handleClick() {
-    const { name, image, senhaDigitada } = this.state;
+    const { email, description, name, image, senhaDigitada } = this.state;
     const password = localStorage.getItem('password');
     const nameUser = localStorage.getItem('nameUser');
     if (senhaDigitada === password && name === nameUser) {
       this.setState({ loading: true, login: true }, () => {
-        createUser({ name, image })
+        createUser({ name, image, description, email })
           .then(() => this.setState({ redirect: true }));
       });
     } else {
@@ -64,6 +71,15 @@ class Login extends React.Component {
       return <Loading />;
     }
     return inputName;
+  }
+
+  recoverUser() {
+    getUser()
+      .then((data) => this.setState({
+        description: data.description,
+        email: data.email,
+        image: data.image,
+      }));
   }
 
   render() {
