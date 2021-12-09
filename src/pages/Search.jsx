@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from '../components/Form';
-import Header from '../components/Header';
-import Nav from '../components/Nav';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import '../estilo/Search.css';
@@ -50,8 +48,6 @@ class Search extends React.Component {
     const DEFAULTLENGTH = 50;
     return (
       <div data-testid="page-search">
-        <Header />
-        <Nav />
         <div className="form-search">
           { loading ? <Loading /> : <Form
             testidInput="search-artist-input"

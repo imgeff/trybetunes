@@ -36,7 +36,7 @@ nav .topic-search, .topic-favorites, .topic-profile {
 }
 
 
-nav .topic-search {
+nav .selected {
   background-color: #036b52;
 }
 
@@ -103,10 +103,6 @@ nav .topic-favorites, .topic-profile {
 .album-card a {
   color: #003be5;
   font-size: 16px;
-}
-
-nav .topic-search a {
-  color: white;
 }
 
 .albums-search .result-album {

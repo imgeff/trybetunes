@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
 import '../estilo/Profile.css';
@@ -39,18 +38,6 @@ class Profile extends React.Component {
     const { name, email, image, description, loading } = this.state;
     return (
       <div data-testid="page-profile">
-        <Header />
-        <nav>
-          <div className="profile-search">
-            <Link to="/search" data-testid="link-to-search">Search</Link>
-          </div>
-          <div className="profile-favorites">
-            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-          </div>
-          <div className="profile-profile">
-            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-          </div>
-        </nav>
         {loading ? <Loading /> : (
           <div className="profile">
             <div className="edit">

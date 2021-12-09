@@ -5,7 +5,7 @@
   margin-right: auto;
 }
 
-nav .profile-search, .profile-favorites, .profile-profile {
+nav .topic-search, .topic-favorites, .topic-profile {
   align-items: center;
   display: flex;
   height: 100%;
@@ -13,15 +13,15 @@ nav .profile-search, .profile-favorites, .profile-profile {
   width: 33.3%;
 }
 
-nav .profile-favorites, .profile-profile {
+nav .topic-favorites, .topic-profile {
   border-left: 4px solid white;
 }
 
-nav .profile-profile {
+nav .select {
   background-color: #036b52;
 }
 
-nav .profile-profile a {
+nav .select a {
   color: white;
 }
 

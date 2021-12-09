@@ -1,18 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Nav extends React.Component {
   render() {
     return (
       <nav>
         <div className="topic-search">
-          <Link to="/search" data-testid="link-to-search">Search</Link>
+          <NavLink
+            to="/search"
+            data-testid="link-to-search"
+            activeClassName="selected"
+          >
+            Search
+          </NavLink>
         </div>
         <div className="topic-favorites">
-          <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
+          <NavLink
+            to="/favorites"
+            data-testid="link-to-favorites"
+            activeClassName="selected"
+          >
+            Favorites
+          </NavLink>
         </div>
         <div className="topic-profile">
-          <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+          <NavLink
+            to="/profile"
+            data-testid="link-to-profile"
+            activeClassName="selected"
+          >
+            Profile
+          </NavLink>
         </div>
       </nav>
     );
