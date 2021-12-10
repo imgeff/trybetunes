@@ -36,7 +36,9 @@ class Search extends React.Component {
           artist: '',
           loading: false,
           albums: [...data],
-          found: data.some((album) => album.artistName.includes(nameResult)),
+          found: data.some((album) => (
+            album.artistName.toLowerCase() === nameResult.toLowerCase()
+          )),
         }));
     });
   }
