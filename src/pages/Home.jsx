@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../images/LOGO.png';
-import '../estilo/Login.css';
+// import '../estilo/Login.css';
 import '../estilo/Home.css';
 
 class Start extends React.Component {

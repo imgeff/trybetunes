@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { createUser, getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import Logo from '../images/LOGO.png';
-import '../estilo/Login.css';
+import styles from '../estilo/Login.module.css';
 
 class Login extends React.Component {
   constructor() {
@@ -116,9 +116,9 @@ class Login extends React.Component {
       </button>);
     const { name, redirect, login } = this.state;
     return (
-      <div className="page-login" data-testid="page-login">
-        <img src={ Logo } alt="Logo" />
-        <form className="form-login">
+      <div className={ styles.page_login } data-testid="page-login">
+        <img src={ Logo } alt="Logo" className={ styles.login_logo } />
+        <form className={ styles.form_login }>
           {this.validateInput()}
           {login === false && acessoInvalido}
           {name.length >= MINLENGTH ? enabled : disabled}
