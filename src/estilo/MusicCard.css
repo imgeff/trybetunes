@@ -52,6 +52,8 @@ label img {
 
 
 .mark-check {
+  border: 2px solid black;
+  border-radius: 50%;
   cursor: pointer;
   height: 25px;
   padding: 5px;
@@ -59,7 +61,8 @@ label img {
 }
 
 label input:checked ~ .mark-check {
-  background-color: rgb(66, 200, 66);
+  background-color: #2fc18c;
+  border: 2px solid black;
   border-radius: 50%;
   padding: 5px;
 }
