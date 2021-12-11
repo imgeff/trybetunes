@@ -28,7 +28,7 @@ class Form extends React.Component {
       <button
         data-testid={ testidButton }
         type="button"
-        disabled="true"
+        disabled
       >
         {nameButton}
       </button>);

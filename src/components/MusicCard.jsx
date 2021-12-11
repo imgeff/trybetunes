@@ -121,12 +121,13 @@ class MusicCard extends React.Component {
   }
 }
 
+MusicCard.defaultProps = {
+  image: false,
+};
+
 MusicCard.propTypes = {
-  objectAlbum: PropTypes.shape({
-    trackName: PropTypes.string,
-    previewUrl: PropTypes.string,
-  }).isRequired,
-  image: PropTypes.bool.isRequired,
+  objectAlbum: PropTypes.arrayOf(PropTypes.object).isRequired,
+  image: PropTypes.bool,
 };
 
 export default MusicCard;

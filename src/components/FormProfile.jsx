@@ -67,8 +67,7 @@ class FormProfile extends React.Component {
   }
 
   render() {
-    const { redirectLogin, redirectProfile, disabled, loading, image } = this.state;
-    console.log(image);
+    const { redirectLogin, redirectProfile, disabled, loading } = this.state;
     const disabledButton = (
       <button
         type="button"
@@ -155,8 +154,12 @@ class FormProfile extends React.Component {
   }
 }
 
+FormProfile.defaultProps = {
+  cadastro: false,
+};
+
 FormProfile.propTypes = {
-  cadastro: PropTypes.bool.isRequired,
+  cadastro: PropTypes.bool,
 };
 
 export default FormProfile;

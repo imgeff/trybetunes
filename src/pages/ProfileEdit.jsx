@@ -61,9 +61,7 @@ class ProfileEdit extends React.Component {
 
 ProfileEdit.propTypes = {
   location: PropTypes.shape({
-    state: PropTypes.shape({
-      cadastro: PropTypes.bool,
-    }).isRequired,
+    state: PropTypes.string,
   }).isRequired,
 };
 
