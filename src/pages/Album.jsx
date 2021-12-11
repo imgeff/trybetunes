@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import '../estilo/Album.css';
@@ -36,7 +35,6 @@ class Album extends React.Component {
     const { artist, image, album, objectAlbum } = this.state;
     return (
       <div data-testid="page-album" className="page-album">
-        <Header />
         <div className="album-content">
           <div className="album-info">
             <img src={ image } alt={ album } />

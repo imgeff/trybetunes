@@ -16,7 +16,15 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/album/:id" component={ Album } />
+          <Route
+            path="/album/:id"
+            render={ (props) => (
+              <>
+                <Header />
+                <Album { ...props } />
+              </>
+            ) }
+          />
           <Route path="/profile/edit" component={ ProfileEdit } />
           <Route
             path="/profile"

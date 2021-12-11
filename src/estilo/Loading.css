@@ -1,9 +1,6 @@
-.loading {
+.loader {
   display: flex;
   justify-content: center;
-}
-
-.loading span {
-  color: #023031;
-  font-size: 25px;
+  margin-bottom: 30px;
+  width: 100%;
 }

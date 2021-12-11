@@ -59,12 +59,21 @@ class Login extends React.Component {
   validateInput() {
     const { loading } = this.state;
     const inputName = (
-      <input
-        data-testid="login-name-input"
-        type="text"
-        placeholder="Nome de Usuario"
-        onChange={ this.handleChange }
-      />
+      <>
+        <input
+          data-testid="login-name-input"
+          type="text"
+          placeholder="Nome de Usuario"
+          onChange={ this.handleChange }
+        />
+        <input
+          data-testid="edit-input-password"
+          type="password"
+          name="password"
+          placeholder="Digite sua senha"
+          onChange={ this.handleChangePassword }
+        />
+      </>
     );
 
     if (loading) {
@@ -111,13 +120,6 @@ class Login extends React.Component {
         <img src={ Logo } alt="Logo" />
         <form className="form-login">
           {this.validateInput()}
-          <input
-            data-testid="edit-input-password"
-            type="password"
-            name="password"
-            placeholder="Digite sua senha"
-            onChange={ this.handleChangePassword }
-          />
           {login === false && acessoInvalido}
           {name.length >= MINLENGTH ? enabled : disabled}
           {redirect === true && <Redirect to="/search" />}
