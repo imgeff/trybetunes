@@ -97,6 +97,7 @@ class Login extends React.Component {
       <span className="invalid-pass">Senha ou Usuário Inválido</span>);
     const disabled = (
       <button
+        style={ { backgroundColor: '#0039e5a9', border: 'none' } }
         type="button"
         data-testid="login-submit-button"
         click={ this.handleClick }
@@ -114,14 +115,14 @@ class Login extends React.Component {
       >
         Entrar
       </button>);
-    const { name, redirect, login } = this.state;
+    const { name, redirect, login, senhaDigitada } = this.state;
     return (
       <div className={ styles.page_login } data-testid="page-login">
         <img src={ Logo } alt="Logo" className={ styles.login_logo } />
         <form className={ styles.form_login }>
           {this.validateInput()}
           {login === false && acessoInvalido}
-          {name.length >= MINLENGTH ? enabled : disabled}
+          {name.length && senhaDigitada.length >= MINLENGTH ? enabled : disabled}
           {redirect === true && <Redirect to="/search" />}
         </form>
       </div>

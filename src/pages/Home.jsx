@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../images/LOGO.png';
-// import '../estilo/Login.css';
+import Marshmello from '../images/undraw_mello_otq1.svg';
 import '../estilo/Home.css';
+import Background from '../components/Background';
 
-class Start extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div className="background-start">
+        <Background />
+        <img src={ Marshmello } alt="Dj Marshmello" className="background-img" />
         <div className="page-start">
           <div className="logo-start">
             <img src={ Logo } alt="Logo" />
@@ -26,6 +29,7 @@ class Start extends React.Component {
                 pathname: '/profile/edit',
                 state: { cadastro: true },
               } }
+              className="btn-cadastro"
             >
               Cadastre-se
             </Link>
@@ -36,4 +40,4 @@ class Start extends React.Component {
   }
 }
 
-export default Start;
+export default Home;

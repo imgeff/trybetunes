@@ -1,0 +1,113 @@
+/* stylelint-disable selector-max-specificity */
+
+@keyframes fade-in {
+
+  0.0% {
+    opacity: 0.2;
+  }
+
+  100.0% {
+    opacity: 1;
+    transform: translate(100px, 0);
+  }
+}
+
+@keyframes floatingIcons {
+
+  0.0% {
+    transform: translate(15px) rotate(-10deg);
+  }
+
+  100% {
+    transform: translate(0, -30px);
+  }
+
+  49.7% {
+    transform: translate(-15px) rotate(10deg);
+  }
+}
+
+#icon-note1, #icon-note2, #icon-note3, #icon-note4 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 100px;
+  position: absolute;
+  width: 100px;
+}
+
+#icon-note2 {
+  margin-left: 50%;
+  margin-top: 700px;
+}
+
+#icon-note3 {
+  margin-left: 83%;
+  margin-top: 200px;
+}
+
+#icon-note4 {
+  margin-left: 42%;
+  margin-top: 50px;
+}
+
+#icon-disc1 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 50px;
+  margin-left: 67%;
+  margin-top: 50px;
+  position: absolute;
+  width: 50px;
+}
+
+#icon-disc2 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 50px;
+  margin-left: 4%;
+  margin-top: 800px;
+  position: absolute;
+  width: 50px;
+}
+
+#icon-disc3 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 50px;
+  margin-left: 42%;
+  margin-top: 650px;
+  position: absolute;
+  width: 50px;
+}
+
+#icon-disc4 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 70px;
+  margin-left: 2%;
+  margin-top: 480px;
+  position: absolute;
+  width: 70px;
+}
+
+#claveSol {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 70px;
+  margin-left: 21%;
+  margin-top: 40px;
+  position: absolute;
+  width: 70px;
+}
+
+#claveSol1 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 70px;
+  margin-left: 87%;
+  margin-top: 540px;
+  position: absolute;
+  width: 70px;
+}
+
+#claveSol2 {
+  animation: floatingIcons 8s linear 0s infinite alternate none;
+  height: 70px;
+  margin-left: 39%;
+  margin-top: 250px;
+  position: absolute;
+  width: 70px;
+}

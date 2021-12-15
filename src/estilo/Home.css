@@ -1,11 +1,23 @@
+/* stylelint-disable selector-max-specificity */
 .background-start {
-  background-image: url('../images/ingo-ellerbusch-YpLN4HacUS4-unsplash.jpg');
+  align-items: flex-start;
   background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
   height: 879px;
+  justify-content: flex-start;
+}
+
+.background-img {
+  height: 70%;
+  margin-left: 30%;
+  margin-right: 20%;
+  position: absolute;
+  width: 70%;
 }
 
 .page-start h1, p {
-  color: #023031;
+  color: #29273b;
   font-family: Verdana , Geneva , Tahoma , sans-serif;
   font-size: 20px;
   text-align: start;
@@ -23,21 +35,41 @@
 }
 
 .page-start {
-  align-items: flex-start;
+  align-items: center;
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
+  height: 500px;
   justify-content: center;
+  margin-left: 0;
+  margin-top: 200px;
   width: 50%;
 }
 
 .logo-start {
+  align-items: center;
   display: flex;
+  height: 158px;
   justify-content: center;
-  width: 100%;
+  width: 638px;
+}
+
+@keyframes fade-in {
+
+  0.0% {
+    opacity: 0.2;
+  }
+
+  100.0% {
+    opacity: 1;
+    transform: translate(100px, 0);
+  }
 }
 
 .logo-start img {
-  margin-top: 30px;
+  animation: fade-in 1.2s ease 0s normal both;
+  margin-left: -16%;
+  margin-top: -70px;
 }
 
 .page-start a {
@@ -48,27 +80,30 @@
   display: flex;
   font-size: 18px;
   justify-content: center;
-  margin-bottom: 15px;
   margin-right: 20px;
   padding: 8px 50px;
   width: 120px;
 }
 
 .page-start a:hover {
-  box-shadow: 0 2px 25px -4px #023031;
+  box-shadow: 0 2px 25px 5px #12c097;
 }
 
 .text-start {
   align-items: center;
+  animation: fade-in 1.2s ease 0s normal both;
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
+  margin-left: -4%;
+  margin-top: 10px;
+  width: 67%;
 }
 
 .start-buttons {
-  align-items: center;
+  animation: fade-in 1.2s ease 0s normal both;
   display: flex;
   justify-content: center;
+  margin-left: -11%;
   margin-top: 10px;
-  width: 70%;
+  width: 638px;
 }

@@ -96,13 +96,13 @@ class MusicCard extends React.Component {
     const arrayOfAlbum = objectAlbum;
     return (
       <div className="music-card">
-        {loading === true && <Loading /> }
         {
           arrayOfAlbum.map(({ trackName, previewUrl, trackId, artworkUrl100 }) => (
             <div className="name-song" key={ trackName }>
               {image ? (<img src={ artworkUrl100 } alt={ trackId } className="img" />
               ) : null}
               <p key={ trackName }>{trackName}</p>
+              {loading === true && <Loading />}
               <div className="audio">
                 <audio data-testid="audio-component" src={ previewUrl } controls>
                   <track kind="captions" />
