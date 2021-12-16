@@ -118,7 +118,9 @@ class Login extends React.Component {
     const { name, redirect, login, senhaDigitada } = this.state;
     return (
       <div className={ styles.page_login } data-testid="page-login">
-        <img src={ Logo } alt="Logo" className={ styles.login_logo } />
+        <div className={ styles.box_logo }>
+          <img src={ Logo } alt="Logo" className={ styles.login_logo } />
+        </div>
         <form className={ styles.form_login }>
           {this.validateInput()}
           {login === false && acessoInvalido}

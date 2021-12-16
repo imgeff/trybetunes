@@ -8,7 +8,8 @@ body {
 .page_login {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @keyframes fade-in {
@@ -23,10 +24,16 @@ body {
   }
 }
 
+.box_logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .login_logo {
   animation: fade-in 1.2s ease 0s normal both;
   height: 158px;
-  margin-left: 100px;
+  margin-left: 200px;
   margin-top: 169px;
   width: 208px;
 }
@@ -41,7 +48,7 @@ body {
   flex-direction: column;
   height: 314px;
   justify-content: center;
-  margin-left: 100px;
+  margin-left: 200px;
   margin-top: 100px;
   width: 697px;
 }
@@ -89,3 +96,32 @@ form a {
   width: 453px;
 }
 
+@media screen and ( max-width : 794px ) {
+
+  .form_login {
+    width: 50%;
+  }
+
+  .form_login input {
+    width: 80%;
+  }
+
+  .form_login button {
+    width: 80%;
+  }
+}
+
+@media screen and ( max-width : 500px ) {
+
+  .form_login {
+    width: 100%;
+  }
+
+  .form_login input {
+    width: 80%;
+  }
+
+  .form_login button {
+    width: 80%;
+  }
+}
