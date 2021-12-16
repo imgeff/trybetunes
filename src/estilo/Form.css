@@ -1,7 +1,21 @@
+@keyframes to-up {
+
+  0.0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -50px);
+  }
+}
+
 .form-search {
   align-items: center;
+  animation: to-up 0.5s linear 0s 1 normal forwards;
   display: flex;
   justify-content: center;
+  margin-top: 70px;
 }
 
 .form-search input {

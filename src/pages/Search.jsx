@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Form from '../components/Form';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import defaultImg from '../images/undraw_loading_re_5axr.svg';
 import '../estilo/Search.css';
 
 class Search extends React.Component {
@@ -65,6 +66,8 @@ class Search extends React.Component {
         <div className="albums-search">
           {found === false
           && <p>Nenhum álbum foi encontrado</p>}
+          {loading === false && albums.length < 1 ? (
+            <img src={ defaultImg } alt="img search" className="search-img" />) : null}
           {albums.length > 0
             && <p className="result-album">{`Resultado de álbuns de: ${nameResult}`}</p>}
           { albums.length > 0 && (
