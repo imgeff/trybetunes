@@ -70,6 +70,7 @@ class FormProfile extends React.Component {
     const { redirectLogin, redirectProfile, disabled, loading } = this.state;
     const disabledButton = (
       <button
+        style={ { backgroundColor: '#0039e5a9', border: 'none' } }
         type="button"
         data-testid="edit-button-save"
         onClick={ this.handleClick }
