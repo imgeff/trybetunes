@@ -26,14 +26,27 @@ nav .selected {
 }
 
 .favorites-songs {
+  animation: to-up-favorites-songs 0.5s linear 0s 1 normal forwards;
   margin-left: auto;
   margin-right: auto;
   width: 600px;
+}
+
+@keyframes to-up-favorites-songs {
+
+  0.0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -50px);
+  }
 }
 
 .favorites-songs .favorite-text {
   color: #001813;
   font-size: 24px;
   margin-bottom: -100px;
-  margin-top: 150px;
+  margin-top: 200px;
 }
