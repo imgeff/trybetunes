@@ -9,7 +9,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="background-start">
-        <Background />
+        <Background className="icons-animated" />
         <img src={ Marshmello } alt="Dj Marshmello" className="background-img" />
         <div className="page-start">
           <div className="logo-start">

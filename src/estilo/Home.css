@@ -107,3 +107,136 @@
   margin-top: 10px;
   width: 638px;
 }
+
+@media screen and ( max-width : 794px ) and ( min-width : 500px ) {
+
+  .page-start {
+    margin-left: -50px;
+    width: 100%;
+  }
+
+  .page-start p {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .page-start h1 {
+    font-size: 22px;
+  }
+
+  .background-img {
+    display: none;
+  }
+
+  .logo-start {
+    margin-top: -100px;
+  }
+
+  .logo-start img {
+    display: block;
+    height: 150px;
+    width: 200px;
+  }
+
+  .start-buttons {
+    align-items: center;
+    margin-left: -40px;
+    margin-top: -150px;
+  }
+
+  .start-buttons a {
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100px;
+  }
+
+  .text-start {
+    margin-top: -100px;
+  }
+
+}
+
+@media screen and ( max-width : 1024px ) {
+
+  .page-start {
+    margin-left: 0;
+    width: 40%;
+  }
+
+  .page-start p {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .text-start {
+    width: 100%;
+  }
+
+  .page-start h1 {
+    font-size: 20px;
+  }
+
+  .background-img {
+    margin-left: 52%;
+    width: 40%;
+  }
+
+  .start-buttons a {
+    align-items: center;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and ( max-width : 499px ) {
+
+  .page-start {
+    width: 100%;
+  }
+
+  .page-start p {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .page-start h1 {
+    font-size: 18px;
+  }
+
+  .background-img {
+    display: none;
+  }
+
+  .logo-start {
+    margin-top: -100px;
+  }
+
+  .logo-start img {
+    display: block;
+    height: 150px;
+    width: 200px;
+  }
+
+  .start-buttons {
+    align-items: center;
+    flex-direction: column;
+    margin-left: -40px;
+    margin-top: -150px;
+  }
+
+  .start-buttons a {
+    font-size: 18px;
+    margin-bottom: -30px;
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-right: 20px;
+    width: 200px;
+  }
+
+  .text-start {
+    margin-top: -100px;
+  }
+
+}
