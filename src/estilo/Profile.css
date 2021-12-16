@@ -1,8 +1,22 @@
+@keyframes to-up-profile {
+
+  0.0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -50px);
+  }
+}
+
 .profile {
+  animation: to-up-profile 0.5s linear 0s 1 normal forwards;
   display: flex;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
 }
 
 nav .topic-search, .topic-favorites, .topic-profile {
@@ -39,6 +53,13 @@ nav .select a {
   font-size: 16px;
   font-weight: 100;
   padding: 5px 10px;
+}
+
+.profile .edit a:hover {
+  background-color: #003be5;
+  box-shadow: 0 2px 25px 5px #bdbdbd;
+  color: white;
+  transition: 1s;
 }
 
 .profile .edit {
