@@ -134,3 +134,26 @@ nav .topic-favorites, .topic-profile {
   position: absolute;
   width: 300px;
 }
+
+@media screen and ( max-width : 720px ) {
+
+  .albums-search .result-album {
+    font-size: 22px;
+  }
+
+  .form-search input {
+    margin-right: 0;
+    width: 80%;
+  }
+
+  .form-search img {
+    margin-left: 80%;
+  }
+
+  .form-search button {
+    margin-left: 100px;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 40%;
+  }
+}
