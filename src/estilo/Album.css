@@ -1,5 +1,19 @@
+@keyframes fade-in {
+
+  0.0% {
+    opacity: 0.2;
+  }
+
+  100.0% {
+    opacity: 1;
+    transform: translate(-100px, 0);
+  }
+}
+
 .album-content {
+  animation: fade-in 1.2s ease 0s normal both;
   display: flex;
+  margin-right: 100px;
 }
 
 .album-content .album-info {
