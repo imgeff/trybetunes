@@ -65,8 +65,8 @@ class Search extends React.Component {
         </div>
         <div className="albums-search">
           {found === false
-          && <p>Nenhum álbum foi encontrado</p>}
-          {loading === false && albums.length < 1 ? (
+          && albums.length < 1 ? <p>Nenhum álbum foi encontrado</p> : null}
+          {loading === false && albums.length < 1 && found !== false ? (
             <img src={ defaultImg } alt="img search" className="search-img" />) : null}
           {albums.length > 0
             && <p className="result-album">{`Resultado de álbuns de: ${nameResult}`}</p>}
