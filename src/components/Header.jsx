@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
@@ -32,8 +33,16 @@ class Header extends React.Component {
 
   render() {
     const { loading, user, image } = this.state;
+    const { navBlock } = this.props;
 
-    const Usuario = (
+    const usuario = navBlock ? (
+      <span
+        data-testid="header-user-name"
+      >
+        <img src={ image } alt="foto de perfil" />
+        {user}
+      </span>
+    ) : (
       <Link to="/profile">
         <span
           data-testid="header-user-name"
@@ -46,13 +55,19 @@ class Header extends React.Component {
 
     return (
       <header data-testid="header-component">
-        <Link to="/search">
-          <img src={ Logo } alt="logo" />
-        </Link>
-        {loading ? <Loading /> : Usuario}
+        { navBlock ? <img src={ Logo } alt="logo" /> : (
+          <Link to="/search">
+            <img src={ Logo } alt="logo" />
+          </Link>
+        )}
+        {loading ? <Loading /> : usuario}
       </header>
     );
   }
 }
+
+Header.propTypes = {
+  navBlock: PropTypes.bool.isRequired,
+};
 
 export default Header;

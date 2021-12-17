@@ -39,9 +39,10 @@ class ProfileEdit extends React.Component {
   render() {
     const { name, email, image, description, loading } = this.state;
     const { location: { state: { cadastro } } } = this.props;
+    const navBlock = true;
     return (
       <div data-testid="page-profile-edit">
-        <Header />
+        {cadastro ? <Header navBlock={ navBlock } /> : <Header />}
         {loading ? <Loading /> : (
           <div className="form-edit">
             <img className="photo-profile" src={ image } alt={ name } />
