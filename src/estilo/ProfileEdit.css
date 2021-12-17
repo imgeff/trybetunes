@@ -86,3 +86,23 @@ form button {
   margin-top: 160px;
   width: 100px;
 }
+
+@media screen and ( max-width : 635px ) {
+
+
+  form span {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-edit form span, span input, span textarea {
+    width: 80%;
+  }
+
+  span p {
+    text-align: center;
+    width: 100%;
+  }
+
+}
