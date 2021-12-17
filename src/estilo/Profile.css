@@ -97,3 +97,29 @@ nav .select a {
   line-height: 150%;
   margin-left: 105px;
 }
+
+@media screen and ( max-width : 700px ) {
+
+  .profile {
+    width: 80%;
+  }
+
+  .profile .edit img {
+    height: 80px;
+    width: 80px;
+  }
+
+  .info-profile span, .info-profile p {
+    margin-left: 0;
+  }
+
+  .info-profile p {
+    display: flex;
+    justify-content: center;
+  }
+
+  .info-profile {
+    align-items: center;
+    display: flex;
+  }
+}
