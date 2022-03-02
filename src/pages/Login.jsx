@@ -20,7 +20,6 @@ class Login extends React.Component {
     };
 
     this.recoverUser = this.recoverUser.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.validateInput = this.validateInput.bind(this);
@@ -30,15 +29,9 @@ class Login extends React.Component {
     this.recoverUser();
   }
 
-  handleChange({ target }) {
+  handleChange({ target: { name, value } }) {
     this.setState({
-      name: target.value,
-    });
-  }
-
-  handleChangePassword({ target }) {
-    this.setState({
-      senhaDigitada: target.value,
+      [name]: value,
     });
   }
 
@@ -63,15 +56,16 @@ class Login extends React.Component {
         <input
           data-testid="login-name-input"
           type="text"
+          name="name"
           placeholder="Nome de Usuario"
           onChange={ this.handleChange }
         />
         <input
           data-testid="edit-input-password"
           type="password"
-          name="password"
+          name="senhaDigitada"
           placeholder="Digite sua senha"
-          onChange={ this.handleChangePassword }
+          onChange={ this.handleChange }
         />
       </>
     );
@@ -93,8 +87,10 @@ class Login extends React.Component {
 
   render() {
     const MINLENGTH = 3;
+
     const acessoInvalido = (
       <span className="invalid-pass">Senha ou Usuário Inválido</span>);
+
     const disabled = (
       <button
         style={ { backgroundColor: '#0039e5a9', border: 'none' } }
@@ -106,6 +102,7 @@ class Login extends React.Component {
       >
         Entrar
       </button>);
+
     const enabled = (
       <button
         type="button"
@@ -115,6 +112,7 @@ class Login extends React.Component {
       >
         Entrar
       </button>);
+
     const { name, redirect, login, senhaDigitada } = this.state;
     return (
       <div className={ styles.page_login } data-testid="page-login">
