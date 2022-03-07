@@ -108,6 +108,15 @@
   width: 638px;
 }
 
+.btn-cadastro {
+  background-color: transparent;
+  border: none;
+  color: #023031;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+
 @media screen and ( max-width : 794px ) and ( min-width : 500px ) {
 
   .page-start {

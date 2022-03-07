@@ -11,7 +11,7 @@ class FormProfile extends React.Component {
       name: '',
       password: '',
       email: '',
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Font_Awesome_5_solid_user-circle.svg/991px-Font_Awesome_5_solid_user-circle.svg.png',
       description: '',
       loading: false,
       redirectLogin: false,
@@ -36,32 +36,35 @@ class FormProfile extends React.Component {
   }
 
   handleClick() {
+    this.redirectPath();
+  }
+
+  redirectPath = () => {
     const { cadastro } = this.props;
     if (cadastro === true) {
-      const { name, email, image, description } = this.state;
+      const { name, email, description, image } = this.state;
       this.setState({ loading: true }, () => {
-        updateUser({ name, email, image, description })
+        updateUser({ name, email, description, image })
           .then(() => this.setState({ redirectLogin: true, loading: false }));
       });
     } else {
-      const { name, email, image, description } = this.state;
+      const { name, email, description, image } = this.state;
       this.setState({ loading: true }, () => {
-        updateUser({ name, email, image, description })
+        updateUser({ name, email, description, image })
           .then(() => this.setState({ redirectProfile: true, loading: false }));
       });
     }
   }
 
   disabledButton() {
-    const { name, email, image, description } = this.state;
+    const { name, email, description } = this.state;
     const nameLength = name.length;
     const emailLength = email.length;
-    const imageLength = image.length;
     const descriptionLength = description.length;
-    if (nameLength < 1 || emailLength < 1 || imageLength < 1 || descriptionLength < 1) {
+    if (nameLength < 1 || emailLength < 1 || descriptionLength < 1) {
       this.setState({ disabled: true });
     }
-    if (nameLength > 0 && emailLength > 0 && imageLength > 0 && descriptionLength > 0) {
+    if (nameLength > 0 && emailLength > 0 && descriptionLength > 0) {
       this.setState({ disabled: false });
     }
   }
@@ -124,18 +127,6 @@ class FormProfile extends React.Component {
             id="edit-input-description"
             name="description"
             placeholder="Sobre mim"
-            onChange={ this.handleChange }
-          />
-        </span>
-        <span>
-          Foto de perfil
-          <p>Escolha uma foto que te represente!</p>
-          <input
-            data-testid="edit-input-image"
-            type="text"
-            id="edit-input-image"
-            name="image"
-            placeholder="Insira um link"
             onChange={ this.handleChange }
           />
         </span>
