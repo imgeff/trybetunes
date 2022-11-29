@@ -1,7 +1,57 @@
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 # TrybeTunes
 
+<details>
+  <summary><strong>🖥️ Telas da Aplicação</strong></summary><br />
+  
+  ### Página Home
+
+  A página inicial da aplicação, que oferece dois caminhos ao usuário, fazer login caso já possua conta, ou criar conta para entrar na aplicação.
+
+    ![image](images/Home.png)
+  ### Página de Login
+
+  A página possibilita a pessoa usuária fazer login, com email e senha que foram salvos no localStorage através da página de resgistro.
+
+    ![image](images/login.png)
+
+  ### Página de Registro
+
+  Essa página possui campos para registro de email, senha, nome do usuário e uma descrição no localStorage, onde serão utilizados esses dados para fazer login e montar a página de perfil.
+
+    ![image](images/register.png)
+
+  ### Página Search
+
+  Na página search é onde se pode pesquisar os artistas e escolher o albúm que deseja ouvir.
+
+    ![image](images/search.png)
+
+  #### Resultado pós busca de artista
+
+    ![image](images/search-albuns.png)
+  ### Página do Albúm
+
+  No albúm há uma foto do albúm escolhido á esquerda e as músicas do albúm ficam na direita em lista com todos os controles de áudio como reproduzir e pausar, e mais á direita a opção de favoritar a música.
+
+    ![image](images/album.png)
+  ### Página de Músicas Favoritas
+
+    A página mostra as músicas que o usuário favoritou e oferece ainda a opção de desfavoritar.
+
+    ![image](images/favorites.png)
+  #### Página Profile
+
+    A página de perfil mostra as informações que o usuário preencheu no momento de registro e oferece a opção de editar essas informações.
+
+    ![image](images/profile.png)
+
+  #### Página Not Found
+
+    Caso o usuário passe uma rota que a aplicação desconhece, ele cairá na página Not Found lhe informando que a página que está tentando acessar não foi encontrada.
+
+    ![image](images/not-found.png)
+</details>
 
 O TrybeTunes, é uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada. O usuário será capaz de:
 
@@ -71,56 +121,6 @@ O arquivo `favoriteSongsAPI.js` é responsável por manipular as informações d
 O arquivo `musicsAPI.js` contém uma função que faz uma requisição à uma API e retorna os as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
 
   ---
-## Telas da Aplicação
-
-
-### Página Home
-
-A página inicial da aplicação, que oferece dois caminhos ao usuário, fazer login caso já possua conta, ou criar conta para entrar na aplicação.
-
-  ![image](images/Home.png)
-### Página de Login
-
-A página possibilita a pessoa usuária fazer login, com email e senha que foram salvos no localStorage através da página de resgistro.
-
-  ![image](images/login.png)
-
-### Página de Registro
-
-Essa página possui campos para registro de email, senha, nome do usuário e uma descrição no localStorage, onde serão utilizados esses dados para fazer login e montar a página de perfil.
-
-  ![image](images/register.png)
-
-### Página Search
-
-Na página search é onde se pode pesquisar os artistas e escolher o albúm que deseja ouvir.
-
-  ![image](images/search.png)
-
-#### Resultado pós busca de artista
-
-  ![image](images/search-albuns.png)
-### Página do Albúm
-
-No albúm há uma foto do albúm escolhido á esquerda e as músicas do albúm ficam na direita em lista com todos os controles de áudio como reproduzir e pausar, e mais á direita a opção de favoritar a música.
-
-  ![image](images/album.png)
-### Página de Músicas Favoritas
-
-  A página mostra as músicas que o usuário favoritou e oferece ainda a opção de desfavoritar.
-
-  ![image](images/favorites.png)
-#### Página Profile
-
-  A página de perfil mostra as informações que o usuário preencheu no momento de registro e oferece a opção de editar essas informações.
-
-  ![image](images/profile.png)
-
-#### Página Not Found
-
-  Caso o usuário passe uma rota que a aplicação desconhece, ele cairá na página Not Found lhe informando que a página que está tentando acessar não foi encontrada.
-
-  ![image](images/not-found.png)
 
 ## Deploy
 
